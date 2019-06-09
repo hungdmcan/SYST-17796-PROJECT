@@ -17,6 +17,7 @@ private int suit;//represents the suit of a card
 private int value;//represents the value of a card
 private static String[] ranks = {"Joker","Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King"};
 private static String[] suits = {"Clubs","Diamonds","Hearts","Spades"};
+    /* To Do: ranks & suits could be in their Enum Classes*/
 /*
  * Created with an integer that represents a spot in the String array ranks and the String array suits. This represents
  * the rank and suit of an individual card.
