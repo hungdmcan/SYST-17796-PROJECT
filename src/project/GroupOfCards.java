@@ -1,7 +1,6 @@
 package project;
 
 import java.util.*;
-
 /**
  * A concrete class that represents any grouping of cards for a Game.
  * HINT, you might want to subclass this more than once.
@@ -9,14 +8,16 @@ import java.util.*;
  *
  * @author megha,2019
  */
-public class GroupOfCards
+public class GroupOfCards implements ICard
 {
 
-   private int size;
+   private static int size = 52;
    /**
     * The group of cards, stored in an ArrayList
     */
-   private Collection<Card> cards;
+   private ArrayList<Card> deck;
+   private CardGames gameName;
+   private int attribute;
 
    public int getSize ()
    {
@@ -33,10 +34,16 @@ public class GroupOfCards
     *
     * @param givenSize
     */
-   public GroupOfCards (int givenSize)
+   public GroupOfCards ()
    {
-      // TODO - implement GroupOfCards.GroupOfCards
-      throw new UnsupportedOperationException();
+      deck = new ArrayList<Card>();
+      for (int i = 0; i < 4; i++) {
+         for (int j = 1; j <= 13; j++) {
+            deck.add(new Card(i, j));
+         }
+         // TODO - implement GroupOfCards.GroupOfCards
+
+      }
    }
 
    /**
@@ -44,16 +51,27 @@ public class GroupOfCards
     *
     * @return the group of cards.
     */
-   public java.util.ArrayList<Card> showCards ()
-   {
-      // TODO - implement GroupOfCards.showCards
-      throw new UnsupportedOperationException();
-   }
+//   private ArrayList<Card> showCards ()
+//   {
+//      // TODO - implement GroupOfCards.showCards
+//      throw new UnsupportedOperationException();
+//   }
 
    public void shuffle ()
    {
-      // TODO - implement GroupOfCards.shuffle
-      throw new UnsupportedOperationException();
+      Random random = new Random();
+      Card temp;
+      for (int i = 0; i < 200; i++) {
+         int index1 = random.nextInt(deck.size() - 1);
+         int index2 = random.nextInt(deck.size() - 1);
+         temp = deck.get(index2);
+         deck.set(index2, deck.get(index1));
+         deck.set(index1, temp);
+      }
    }
 
+   public Card drawCard ()
+   {
+      return deck.remove(0);
+   }
 }
