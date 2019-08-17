@@ -1,7 +1,7 @@
 package project;
 /**
  *
- * @author Rich Smith at ZenOfProgramming.com
+ * @author Heymann Sharma & Manh Hung Dao
  */
 import java.util.*;
 public class Start
